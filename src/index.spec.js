@@ -1,4 +1,4 @@
-import {Action, supportActionClassEnhancer,supportActionClassMiddleware} from '../index';
+import {Action, supportActionClassEnhancer,supportActionClassMiddleware} from './index';
 import {applyMiddleware, compose, createStore} from 'redux';
 
 class Decrement extends Action {}

@@ -1,11 +1,7 @@
 {
   "name": "redux-support-action-class",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "Support redux actions that are classes instead of plain objects.",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "mocha src/**/*.spec.js --compilers js:babel-core/register -w"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kasperpeulen/redux-support-action-class.git"
@@ -19,15 +15,54 @@
     "url": "https::/github.com/kasperpeulen/redux-support-action-class/issues"
   },
   "homepage": "https:/github.com/kasperpeulen/redux-support-action-class",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha src/**/*.spec.js --compilers js:babel-core/register -w",
+    "build": "babel src --out-dir lib",
+    "start": "babel src --out-dir lib -w"
+  },
   "devDependencies": {
+    "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
+    "babel-plugin-syntax-async-functions": "6.8.0",
+    "babel-plugin-syntax-trailing-function-commas": "6.8.0",
+    "babel-plugin-transform-class-properties": "6.11.5",
+    "babel-plugin-transform-object-rest-spread": "6.8.0",
+    "babel-plugin-transform-react-constant-elements": "6.9.1",
+    "babel-plugin-transform-regenerator": "6.11.4",
+    "babel-plugin-transform-runtime": "6.12.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-es2016": "^6.11.3",
+    "babel-preset-react": "6.11.1",
     "babel-preset-stage-0": "^6.5.0",
+    "babel-runtime": "6.11.6",
     "chai": "^3.5.0",
+    "json-loader": "^0.5.4",
     "mocha": "^3.0.2",
     "redux": "^3.5.2",
     "webpack": "^1.13.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "es2016",
+      "babel-preset-react"
+    ],
+    "plugins": [
+      "syntax-trailing-function-commas",
+      "syntax-async-functions",
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-regenerator",
+      [
+        "transform-runtime",
+        {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true
+        }
+      ]
+    ]
   }
 }

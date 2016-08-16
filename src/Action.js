@@ -15,7 +15,7 @@ export default class Action {
     if (supertype === 'Action') {
       this.type = type;
     } else if (supertype.includes('Action')) {
-      supertype = supertype.substring(0, supertype.indexOf('Action'));
+      supertype = supertype.substring(0, supertype.lastIndexOf('Action'));
       this.type = supertype + "." + this.constructor.name;
     } else {
       throw new Error("HUUUUM I did not expect this.")
